@@ -1,10 +1,17 @@
 {
   "manifest_version": 2,
   "name": "TopicBanFC",
-  "version": "1.0",
+  "version": "1.0.2",
   
-  "homepage_url": "https://github.com/jesusnoseq/bannedWordsFC",
+  "homepage_url": "https://github.com/jesusnoseq/TopicBanFC",
   "description": "Banea hilos que contengan ciertas palabras foro de forocoches.com",
+
+  "applications": {
+    "gecko": {
+      "id": "topicbanfc@jesusnoseq.addons.mozilla.org",
+      "strict_min_version": "57.0"
+    }
+  },
 
   "icons": {
     "48": "icons/Icon48.png",
