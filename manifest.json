@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "TopicBanFC",
-  "version": "1.0.2",
+  "version": "1.0.4",
   
   "homepage_url": "https://github.com/jesusnoseq/TopicBanFC",
   "description": "Banea hilos que contengan ciertas palabras en el foro de forocoches.com",

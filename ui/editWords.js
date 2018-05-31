@@ -7,7 +7,7 @@ function checkStoredData(){
             generateForm(results.bannedWords);
         });
     }else{
-        generateForm(["hola"]);
+        generateForm([]);
     }
 }
 
@@ -42,7 +42,7 @@ function addForm(e){
     e.preventDefault();
     let input=document.querySelector("#newWord");
     if(input.value!==""){
-        wordListContainer.appendChild(generateField(input.value));
+        wordListContainer.prepend(generateField(input.value));
 
         input.value="";
     
