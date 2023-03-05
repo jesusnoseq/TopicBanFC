@@ -13,13 +13,14 @@ function restoreOptions() {
 function cleanPage(bannedWords) {
     const currentPath = window.location.pathname;
     const forumPath = "/foro/forumdisplay.php"
-    const homePath = "/"
-    const homeTopicRoute = ".cajasnews>tbody>tr:nth-child(3)>td.texto>table>tbody>tr";
-    const forumTopicRoute = '#threadslist tbody[id^="collapseobj_st_"]>tr, #threadslist tbody[id^="threadbits_forum_"]>tr';
+    const homePath = "/foro/trending.php"
+    const forumTopicRoute = "section.without-top-corners.without-bottom-corners > div";
+    const trendingTopicRoute = trendingTopicRoute;
+
 
     let query;
-    if (currentPath === homePath) {
-        query = homeTopicRoute;
+    if (currentPath === trendingTopicRoute) {
+        query = trendingTopicRoute;
     } else if (currentPath === forumPath) {
         query = forumTopicRoute;
     }
@@ -28,19 +29,19 @@ function cleanPage(bannedWords) {
     console.debug("childs to check", childs);
 
     let len = childs.length;
-    let eliminados = 0
+    let removed = 0
     for (i = len - 1; i > 0; i--) {
         let c = childs[i];
         let content = c.textContent;
         for (let bw of bannedWords) {
             if (content.toUpperCase().includes(bw.toUpperCase())) {
                 console.debug("child", c, " removed because it contains ", bw);
-                eliminados++;
+                removed++;
                 c.remove()
                 break;
             }
         }
     }
-    console.debug("bannedWordsFC end, removed elements: ", eliminados);
+    console.debug("bannedWordsFC end, removed elements: ", removed);
 }
 
