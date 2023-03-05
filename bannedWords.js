@@ -3,26 +3,26 @@ console.debug("bannedWordsFC loading in", window.location.pathname);
 restoreOptions();
 
 function restoreOptions() {
-    var storeGet =browser.storage.local.get();
+    var storeGet = browser.storage.local.get();
     storeGet.then((res) => {
         console.log("sync.get", res.bannedWords);
-        cleanPage( res.bannedWords);
+        cleanPage(res.bannedWords);
     });
 }
 
 function cleanPage(bannedWords) {
     const currentPath = window.location.pathname;
     const forumPath = "/foro/forumdisplay.php"
-    const homePath = "/foro/trending.php"
-    const forumTopicRoute = "section.without-top-corners.without-bottom-corners > div";
-    const trendingTopicRoute = trendingTopicRoute;
+    const trendingPath = "/foro/trending.php"
+    const forumTopicCSSRoute = "section.without-top-corners.without-bottom-corners > div";
+    const trendingTopicCSSRoute = forumTopicCSSRoute;
 
 
     let query;
-    if (currentPath === trendingTopicRoute) {
-        query = trendingTopicRoute;
+    if (currentPath === trendingPath) {
+        query = trendingTopicCSSRoute;
     } else if (currentPath === forumPath) {
-        query = forumTopicRoute;
+        query = forumTopicCSSRoute;
     }
 
     let childs = document.querySelectorAll(query);
@@ -44,4 +44,3 @@ function cleanPage(bannedWords) {
     }
     console.debug("bannedWordsFC end, removed elements: ", removed);
 }
-
